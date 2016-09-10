@@ -10,7 +10,7 @@
 	$verbs = [];
 
 	foreach($allverbs as $verb) {
-		array_push($verbs, $verb["past"]);
+		array_push($verbs, $verb);
 	}
 
 	$symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "="];
@@ -90,16 +90,20 @@
 		$password_string = "";
 
 		for($i = 0; $i < $length; $i++) {
-			if($num == "1" && $symbol == "1") {
-				$password_string = $password_string . str_shuffle($verbs[rand(0, $verbs_length)] . rand(0, 9) . $symbols[rand(0, $symbols_length)]) . $separator;
-			} elseif($num == "1" && $symbol == "0") {
-				$password_string = $password_string . str_shuffle($verbs[rand(0, $verbs_length)] . rand(0,9)) . $separator;
-			} elseif($symbol == "1" && $num == "0") {
-				$password_string = $password_string . str_shuffle($verbs[rand(0, $verbs_length)] . $symbols[rand(0, $symbols_length)]) . $separator;
-			} else {
-				$password_string = $password_string . $verbs[rand(0, $verbs_length)] . $separator;
+			$password_string = $password_string . $verbs[rand(0, $verbs_length)] . $separator;
+
+			if($i == $length) {
+				$password_string = $password_string . $verbs[rand(0, $verbs_length)];
 			}
 
 			$password_string = strtolower($password_string);
+		}
+
+		if($num == "1") {
+			$password_string = $password_string . rand(0, 9);
+		}
+
+		if($symbol == "1") {
+			$password_string = $password_string . $symbols[rand(0, $symbols_length)];
 		}
 	}

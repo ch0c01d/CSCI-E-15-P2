@@ -28,7 +28,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center">
-					<h1><span class="label label-info">XKCD Password Generator</span></h1>
+					<h1><span class="label label-primary">XKCD Password Generator</span></h1>
 				</div>
 			</div>
 
@@ -39,7 +39,7 @@
 			?>
 			<div class="row">
 				<div class="col-sm-12 text-center">
-					<span class="label label-success"><?php echo $password_string; ?></span>
+					<h3><span class="label label-info"><?php echo $password_string; ?></span></h3>
 				</div>
 			</div>
 
@@ -71,7 +71,17 @@
 											<td>Number of Words</td>
 
 											<td>
-												<input type="number" name="num" id="num" min="1" max="9" value="<?php echo $num; ?>" required class="form-control" />
+												<select name="num" class="form-control">
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+													<option value="7">7</option>
+													<option value="8">8</option>
+													<option value="9">9</option>
+												</select>
 											</td>
 										</tr>
 
@@ -116,7 +126,9 @@
 
 										<tr>
 											<td colspan="2">
-												<button type="submit" name="submit" class="btn btn-success btn-lg btn-block">Generate</button>
+												<button type="submit" name="submit" class="btn btn-success btn-lg btn-block" style="margin-bottom:5px;">Generate</button>
+												<a href="http://project.ch0c0studio.net" class="btn btn-primary btn-lg btn-block">Back to Project Home</a>
+												<!-- <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block"></button> -->
 											</td>
 										</tr>
 									</tbody>
